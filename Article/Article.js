@@ -121,13 +121,75 @@ function h2TextCreator(title) {
   return h2;
 }
 
+// function to get the article dates
+function articleDates(date) {
+  const datePara = document.createElement('p');
+  datePara.classList.add('date');
+  datePara.textContent = date;
+
+  return datePara
+}
+
+// function to get first paragraph
+function first(firstParagraph) {
+  const firstPara = document.createElement('p');
+  firstPara.textContent = firstParagraph;
+
+  return firstPara;
+}
+
+// function to get second paragraph
+function second(secondParagraph) {
+  const secondPara = document.createElement('p');
+  secondPara.textContent = secondParagraph;
+
+  return secondPara;
+}
+
+// function to get third paragraph
+function third(thirdParagraph) {
+  const thirdPara = document.createElement('p');
+  thirdPara.textContent = thirdParagraph;
+
+  return thirdPara;
+}
+
+// function to get the span
+function articleSpan(parent) {
+  const span = document.createElement('span');
+  span.classList.add('expandButton');
+  span.textContent = 'Read More';
+  span.addEventListener('click', () => {
+    if (span.classList == 'expandButton') {
+      span.classList.remove('expandButton');
+      span.classList.add('close');
+      span.textContent = 'Close';
+      parent.classList.add('article-open');
+    } else {
+      span.classList.remove('close');
+      span.classList.add('expandButton');
+      span.textContent = 'Read More';
+      parent.classList.remove('article-open');
+    }
+    console.log(span.classList);
+  });
+
+  return span;
+}
+
 
 // main article creator
-function articleCreator(title) {
+function articleCreator(title, date, firstParagraph, secondParagraph, thirdParagraph) {
   const article = document.createElement('div');
   article.classList.add('article');
 
   article.appendChild(h2TextCreator(title));
+  article.appendChild(articleDates(date));
+  article.appendChild(first(firstParagraph));
+  article.appendChild(first(secondParagraph));
+  article.appendChild(first(thirdParagraph));
+
+  article.appendChild(articleSpan(article));
 
   return article;
 }
@@ -135,9 +197,9 @@ function articleCreator(title) {
 
 
 const articleComponents = data.map((article) => {
-  return articleCreator(article.title);
+  return articleCreator(article.title, article.date, article.firstParagraph, article.secondParagraph, article.thirdParagraph);
 });
 
 articleComponents.forEach((article) => {
   container.appendChild(article);
-})
+});
