@@ -1,7 +1,6 @@
 /* This is the data we will be using to create our article components */
 /* Look over this data, then proceed to line 91*/
-const data = [
-  {
+const data = [{
     title: 'Lambda School Students: "We\'re the best!"',
     date: 'Nov 5th, 2018',
     firstParagraph: `Lucas ipsum dolor sit amet ben twi'lek padmé darth darth darth moff hutt organa twi'lek. Ben amidala secura skywalker lando
@@ -112,34 +111,33 @@ const data = [
   Step 5: Add a new article to the array. Make sure it is in the same format as the others. Refresh the page to see the new artible
 
 */
-
 const container = document.querySelector('.articles');
 
-function articleCreator(data) {
+// function to get the article titles
+function h2TextCreator(title) {
   const h2 = document.createElement('h2');
-  const p = document.createElement('p');
-  const span = document.createElement('span');
-  // const para = paraCreator();
-  p.classList.add('date');
-  span.classList.add('expandButton');
-  h2.textContent = 'hi'
+  h2.textContent = title;
 
-  // h2.textContent = data.title;
-  // p.textContent = data.date;
-  
-  return (h2, p, span);
+  return h2;
 }
 
-// function paraCreator(data) {
-//   const p1 = document.createElement('p');
-//   const p2 = document.createElement('p');
-//   const p3 = document.createElement('p');
 
-//   p1.textContent = data.firstParagraph;
-//   p2.textContent = data.secondParagraph;
-//   p3.textContent = data.thirdParagraph;
+// main article creator
+function articleCreator(title) {
+  const article = document.createElement('div');
+  article.classList.add('article');
 
-//   return (p1, p2, p3);
-// }
+  article.appendChild(h2TextCreator(title));
 
-container.appendChild(articleCreator());
+  return article;
+}
+
+
+
+const articleComponents = data.map((article) => {
+  return articleCreator(article.title);
+});
+
+articleComponents.forEach((article) => {
+  container.appendChild(article);
+})
