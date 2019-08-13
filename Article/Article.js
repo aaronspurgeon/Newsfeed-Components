@@ -84,6 +84,24 @@ const data = [{
     thirdParagraph: `Hodor hodor - hodor... Hodor hodor hodor hodor. Hodor. Hodor! Hodor hodor, hodor hodor hodor hodor hodor; hodor hodor? Hodor!
           Hodor hodor, HODOR hodor, hodor hodor?! Hodor! Hodor hodor, HODOR hodor, hodor hodor, hodor, hodor hodor. Hodor, hodor.
           Hodor. Hodor, hodor, hodor. Hodor hodor... Hodor hodor hodor?! Hodor, hodor... Hodor hodor HODOR hodor, hodor hodor. Hodor.`
+  },
+  {
+    title: 'Components Are a Lot of Fun!',
+    date: 'Aug 13th, 2019',
+    firstParagraph: `Tech virtual drone online browser platform through in a system. But stream software offline. Professor install angel sector 
+          anywhere create at components smart. Document fab developers encryption smartphone powered, bespoke blockstack edit atoms. Companies a
+          storage adopters. Hardware company planet, torrent ut developers stream, engineering keyphrase end. Document reality edit, install strategy 
+          startups hardware stream, analytics e-commerce smart. Privacy news data policies analytics documents.`,
+
+    secondParagraph: `Tech virtual drone online browser platform through in a system. But stream software offline. Professor install angel sector 
+    anywhere create at components smart. Document fab developers encryption smartphone powered, bespoke blockstack edit atoms. Companies a
+    storage adopters. Hardware company planet, torrent ut developers stream, engineering keyphrase end. Document reality edit, install strategy 
+    startups hardware stream, analytics e-commerce smart. Privacy news data policies analytics documents.`,
+
+    thirdParagraph: `Tech virtual drone online browser platform through in a system. But stream software offline. Professor install angel sector 
+    anywhere create at components smart. Document fab developers encryption smartphone powered, bespoke blockstack edit atoms. Companies a
+    storage adopters. Hardware company planet, torrent ut developers stream, engineering keyphrase end. Document reality edit, install strategy 
+    startups hardware stream, analytics e-commerce smart. Privacy news data policies analytics documents.`
   }
 ];
 
@@ -171,7 +189,6 @@ function articleSpan(parent) {
       span.textContent = 'Read More';
       parent.classList.remove('article-open');
     }
-    console.log(span.classList);
   });
 
   return span;
