@@ -176,19 +176,9 @@ function third(thirdParagraph) {
 function articleSpan(parent) {
   const span = document.createElement('span');
   span.classList.add('expandButton');
-  span.textContent = 'Read More';
+  span.textContent = 'Read';
   span.addEventListener('click', () => {
-    if (span.classList == 'expandButton') {
-      span.classList.remove('expandButton');
-      span.classList.add('close');
-      span.textContent = 'Close';
-      parent.classList.add('article-open');
-    } else {
-      span.classList.remove('close');
-      span.classList.add('expandButton');
-      span.textContent = 'Read More';
-      parent.classList.remove('article-open');
-    }
+      parent.classList.toggle('article-open');
   });
 
   return span;
