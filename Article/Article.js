@@ -184,6 +184,18 @@ function articleSpan(parent) {
   return span;
 }
 
+// stretch function for closing the article after reading
+function closeSpan(parent) {
+  const close = document.createElement('span');
+  close.classList.add('close');
+  close.textContent = 'X'
+  close.addEventListener('click', () => {
+    parent.style.display = 'none';
+  })
+
+  return close;
+}
+
 
 // main article creator
 function articleCreator(title, date, firstParagraph, secondParagraph, thirdParagraph) {
@@ -195,8 +207,8 @@ function articleCreator(title, date, firstParagraph, secondParagraph, thirdParag
   article.appendChild(first(firstParagraph));
   article.appendChild(first(secondParagraph));
   article.appendChild(first(thirdParagraph));
-
   article.appendChild(articleSpan(article));
+  article.appendChild(closeSpan(article));
 
   return article;
 }
