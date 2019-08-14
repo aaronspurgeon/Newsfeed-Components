@@ -34,24 +34,44 @@ let menuItems = [
   
 */
 
-const header = document.querySelector('header');
+const header = document.querySelector('.header');
 
 function menuCreator(menuItems) {
   const menu = document.createElement('div');
-  menu.classList.add('menu')
+  menu.classList.add('menu');
   const ul = document.createElement('ul');
+  const menuBtn = document.querySelector('.menu-button');
 
+  // function to create the list items
   function itemCreator(text) {
-    let li = document.createElement('li');
+    const li = document.createElement('li');
     li.textContent = text;
 
     return li
   }
 
-  menuItems
+  // iterating over each item in the menuItems array to get the text for each list item
+  menuItems.forEach((item) => {
+    let newListItem = itemCreator(item);
+    ul.appendChild(newListItem);
+  });
+  menu.appendChild(ul);
 
-  
+  // event listener to add the class of menu--open to the menu div
+  menuBtn.addEventListener('click', () => {
+    if(menu.classList == 'menu--open') {
+      menu.classList.remove('menu--open');
+    } else {
+      menu.classList.add('menu--open');
+    }
+  });
+
+
+  return menu;
 }
+
+// console.log(menuCreator(menuItems))
+header.appendChild(menuCreator(menuItems));
 
 
 
