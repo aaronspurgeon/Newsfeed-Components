@@ -59,22 +59,12 @@ function menuCreator(menuItems) {
 
   // event listener to add the class of menu--open to the menu div
   menuBtn.addEventListener('click', () => {
-    if(menu.classList == 'menu--open') {
-      menu.classList.remove('menu--open');
-    } else {
-      menu.classList.add('menu--open');
-    }
+    menu.classList.toggle('menu--open');
   });
 
 
   return menu;
 }
 
-// console.log(menuCreator(menuItems))
+// adding the menu component to the dom
 header.appendChild(menuCreator(menuItems));
-
-
-
-
-
-
